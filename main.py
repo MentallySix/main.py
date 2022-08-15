@@ -50,13 +50,13 @@ async def on_ready():
     print('ok')        
 
 async def create_db_pool():
-    bot.db = await asyncpg.create_pool(dsn="postgres://postgres:ishaan@localhost:5432/TeamWork")
+    bot.db = await asyncpg.create_pool(dsn="postgres://postgres:password@localhost:5432/TeamWork")
     print ("Connection successful")
 
 async def main():      
     await cogs()
     await create_db_pool() # again, no need to run with AbstractLoopEvent if you can await
-    await bot.start('OTgzMDAzMjgwODUyNTQ1NjA2.GdhH2z.Dfb3P-REraGT3gFnBwpWBYc9atKtLeutFdBxKc')
+    await bot.start(token)
     await update_stats()
 
 @bot.event
